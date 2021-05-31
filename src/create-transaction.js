@@ -10,9 +10,11 @@ console.log(
 
 //receiver address
 const receiver =
-    "addr1qyxy3exkk223we9qur8nq0nnmt5vvkxgxucjt85fwns5gkyrq8xs909fhky97vm27e4aylxtsk4rf43rks6cx5sdy3dscljyv0";
+    "addr1qy665r5aehc7s6qs0mdkuzxt6ywlfmxra9d52nvypztrue4svcnspa6ljktrhpxj2rfjv09xyxppd9lvg0mkzk3cj7gs2nn4rg";
 
 const invalidAfter = cardano.queryTip().slot + 10000
+
+console.log(sender.balance().amount)
 
 // create raw transaction
 let txInfo = {
@@ -22,17 +24,27 @@ let txInfo = {
         {
             address: sender.paymentAddr,
             amount: {
-                lovelace: sender.balance().amount.lovelace - cardano.toLovelace(2),
-                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiTrippy': 1,
+                // lovelace: sender.balance().amount.lovelace,
+                lovelace: sender.balance().amount.lovelace - cardano.toLovelace(1.5),
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiRain': 1,
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiRocket': 1,
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiSpaceTime': 1,
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiTimeWarp': 1
             },
         }, //amount going back to sender
         {
             address: receiver,
             amount: {
-                lovelace: cardano.toLovelace(2),
+                lovelace: cardano.toLovelace(1.5),
+                // lovelace: cardano.toLovelace(1),
+                '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiStar': 1
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiRain': 1,
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiRocket': 1,
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiSpaceTime': 1,
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiTimeWarp': 1
                 // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiPurple': 1,
                 // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiShocker': 1,
-                '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiTrippy': 1,
+                // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiTrippy': 1,
                 // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiWater': 1
             }
         }, //amount going to receiver

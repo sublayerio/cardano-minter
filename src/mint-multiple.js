@@ -82,6 +82,11 @@ const mint = ({ name, image }) => {
 }
 
 const inputs = [
+    { name: "PiStar", image: "ipfs://QmSnfiWMNzyMi45iGp8gQPsyZJaMbNqW8h9sK9smt7mDZ4" },
+    // { name: "PiRocket", image: "ipfs://Qmce26Y447aNM3MkwDNET89dLosiM9AGKnRE2fkArDCLZv" },
+    // { name: "PiRain", image: "ipfs://QmU9QhS4CoWjp2JGmpggim9BAmJ2LoaaLbtZAivLpii1hX" },
+    // { name: "PiSpaceTime", image: "ipfs://Qmc5UrYL2VmV8sUXu6LwV2Pq2ahcDYTe2fHhESfaa5dVWS" },
+    // { name: "PiTimeWarp", image: "ipfs://QmeNJUsuPStG9VnZLP4Ar7irCfRSqb7pLdtMe7w1U7STb5" },
     // { name: "PiPurple", image: "ipfs://QmdsGwHo9EqqA6pFCKs64p7P4HWJVfHksa8abmw8FMCrjn" },
     // { name: "PiShocker", image: "ipfs://QmXBKhFYF3qUoBFRtD9VFgsYQeqdiyyDCRLZMwYpvp6iQ7" },
     // { name: "PiTrippy", image: "ipfs://QmPLfAD1MLFyrv5eeYrxbwC9Nkwn628vCgFbW2VX9mgg7w" },
