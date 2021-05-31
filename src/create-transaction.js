@@ -4,7 +4,7 @@ const cardano = require("./cardano")
 const sender = cardano.wallet("ADAPI");
 console.log(
     "Balance of Sender wallet: " +
-    cardano.toAda(sender.balance().amount.lovelace) +
+    cardano.toAda(sender.balance().value.lovelace) +
     " ADA"
 );
 
@@ -21,21 +21,21 @@ let txInfo = {
     txOut: [
         {
             address: sender.paymentAddr,
-            amount: {
-                lovelace: sender.balance().amount.lovelace - cardano.toLovelace(2),
+            value: {
+                lovelace: sender.balance().value.lovelace - cardano.toLovelace(2),
                 // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiTrippy': 1,
             },
-        }, //amount going back to sender
+        }, //value going back to sender
         {
             address: receiver,
-            amount: {
+            value: {
                 lovelace: cardano.toLovelace(2),
                 // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiPurple': 1,
                 // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiShocker': 1,
                 '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiTrippy': 1,
                 // '12fc3123feb6f5c2d16aeb373eb99f677f2e1c6de9bd3cfe3a395e4d.PiWater': 1
             }
-        }, //amount going to receiver
+        }, //value going to receiver
     ],
     metadata: { 1: { message: "With ❤️" } },
 };
@@ -49,7 +49,7 @@ let fee = cardano.transactionCalculateMinFee({
 });
 
 //pay the fee by subtracting it from the sender utxo
-txInfo.txOut[0].amount.lovelace -= fee;
+txInfo.txOut[0].value.lovelace -= fee;
 
 //create final transaction
 let tx = cardano.transactionBuildRaw({ ...txInfo, fee });
