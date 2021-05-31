@@ -2,7 +2,7 @@ const CardanocliJs = require("cardanocli-js");
 const os = require("os");
 const path = require("path");
 
-const dir = path.join(os.homedir(), "minter");
+const dir = path.join(os.homedir(), "projects/cardano-minter");
 const shelleyPath = path.join(
   os.homedir(),
   "mainnet-relay",
